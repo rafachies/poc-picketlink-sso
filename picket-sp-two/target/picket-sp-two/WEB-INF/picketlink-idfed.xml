@@ -1,0 +1,4 @@
+<PicketLinkSP xmlns="urn:picketlink:identity-federation:config:1.0">
+	<IdentityURL>http://localhost:8080/picket-idp/</IdentityURL>
+	<ServiceURL>http://localhost:8280/picket-sp-two/</ServiceURL>
+</PicketLinkSP>

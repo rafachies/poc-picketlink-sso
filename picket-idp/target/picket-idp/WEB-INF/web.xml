@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app>
+	<display-name>IDP</display-name>
+	<description>IDP</description>
+	
+	<!-- Define a security constraint that gives unlimited access to images -->
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Images</web-resource-name>
+			<url-pattern>/images/*</url-pattern>
+		</web-resource-collection>
+	</security-constraint>
+	
+	<!-- Define a Security Constraint on this Application -->
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>IDP</web-resource-name>
+			<url-pattern>/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>manager</role-name>
+		</auth-constraint>
+	</security-constraint>
+	
+	<!-- Define the Login Configuration for this Application -->
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<realm-name>IDP Application</realm-name>
+		<form-login-config>
+			<form-login-page>/jsp/login.jsp</form-login-page>
+			<form-error-page>/jsp/loginerror.jsp</form-error-page>
+		</form-login-config>
+	</login-config>
+	
+	<!-- Security roles referenced by this web application -->
+	<security-role>
+		<description>
+			The role that is required to log in to the IDP Application
+		</description>
+		<role-name>manager</role-name>
+	</security-role>
+</web-app>
